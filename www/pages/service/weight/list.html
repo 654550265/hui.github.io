@@ -1,0 +1,14 @@
+<ion-view view-title="称重系统">
+    <ion-content>
+        <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()">
+        </ion-refresher>
+        <ion-list>
+            <ion-item class="item-icon-left" ng-repeat="item in datapoints" ng-if="item.value.tag != ''">
+				<i class="icon ion-ios-speedometer-outline"></i>
+                标签号：{{item.value.tag}}
+				<span class="item-note positive">{{item.value.weight}}g</span>
+				<p>{{item.value.timeTag | date: 'yyyy-MM-dd HH:mm:ss'}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

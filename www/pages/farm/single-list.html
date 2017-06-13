@@ -1,0 +1,30 @@
+<ion-modal-view class="farmDetail">
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <a class="button button-clear" ng-click="singleFarmInfoExit()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </a>
+        </div>
+        <div class="title">溯源记录</div>
+    </ion-header-bar>
+    <ion-content>
+        <div ng-repeat="item in FarmDetailsList">
+            <div class="list my-list" ng-click="showFarmDetailInner(item)">
+                <div class="item my-item3">
+                    <!-- <div class="delete-farm" ng-click="showConfirm1(item,$event,$index)"><i class="icon ion-trash-a "></i></div> -->
+                    <div class="up-half">
+                        <p>事&emsp;&emsp;项：<span>{{farmShowArray[item.IsType-1]}}</span></p>
+                        <p><span class="worker">位&emsp;&emsp;置</span>：<span>{{item.Position}}</span></p>
+                        <p><span class="worker">操&nbsp;&nbsp;作&nbsp;&nbsp;人</span>：<span>{{item.CreatePerson}}</span></p>
+                    </div>
+                    <div class="down-half">
+                        <div>单&emsp;&emsp;号：{{item.OrrID}}</div>
+                        <div>{{item.SysDate}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ion-infinite-scroll icon="ion-loading-c" ng-if="farmDetailCanPullDown" on-infinite="loadMore2()" distance="10%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-modal-view>
